@@ -191,12 +191,14 @@ interface Options {
 
     container.find('.team').mouseover(function() {
       var i = $(this).attr('data-teamid')
-      var track = trackHighlighter(i, null, container);
-      track.highlight()
-      $(this).mouseout(function() {
-        track.deHighlight()
-        $(this).unbind('mouseout')
-      })
+      if(i != -1) {
+        var track = trackHighlighter(i, null, container);
+        track.highlight()
+        $(this).mouseout(function() {
+          track.deHighlight()
+          $(this).unbind('mouseout')
+        })
+      }
     })
   }
 
